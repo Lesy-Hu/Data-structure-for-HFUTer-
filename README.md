@@ -1,2 +1,2 @@
 # Data-structure-for-HFUTer-
-A repository for HFUTers to make references.
+This repository for HFUTers to make references.
