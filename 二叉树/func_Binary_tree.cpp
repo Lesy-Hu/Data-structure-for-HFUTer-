@@ -3,7 +3,7 @@
 #include <cmath>
 
 using namespace std;
-//·ÃÎÊ½Úµã
+//è®¿é—®èŠ‚ç‚¹
 void visit(BiNode *T){
 	if(T != nullptr){
 		cout << T->data <<endl;
@@ -13,18 +13,18 @@ void visit(BiNode *T){
 } 
 
 
-//¶þ²æÊ÷µÄ±éÀú
-//ÏÈÐò±éÀú
+//äºŒå‰æ ‘çš„éåŽ†
+//å…ˆåºéåŽ†
 void preOrderTraverse(BiNode *T){
 	if(T){
-		visit(T);   //·ÃÎÊ¸ù½Úµã 
-		preOrderTraverse(T->lChild);     //µÝ¹éµ÷ÓÃÏÈÐò±éÀú×ó×ÓÊ÷ 
-		preOrderTraverse(T->rChild);	 //µÝ¹éµ÷ÓÃÏÈÐò±éÀúÓÒ×ÓÊ÷ 
+		visit(T);   //è®¿é—®æ ¹èŠ‚ç‚¹ 
+		preOrderTraverse(T->lChild);     //é€’å½’è°ƒç”¨å…ˆåºéåŽ†å·¦å­æ ‘ 
+		preOrderTraverse(T->rChild);	 //é€’å½’è°ƒç”¨å…ˆåºéåŽ†å³å­æ ‘ 
 	}
 } 
 
  
-//ÖÐÐò±éÀú 
+//ä¸­åºéåŽ† 
 void inOrderTraverse(BiNode *T){
 	if(T){
 		inOrderTraverse(T->lChild);
@@ -34,7 +34,7 @@ void inOrderTraverse(BiNode *T){
 }
 
 
-//ºóÐò±éÀú
+//åŽåºéåŽ†
 void postOrderTraverse(BiNode *T){
 	if(T){
 		postOrderTraverse(T->lChild);
@@ -44,8 +44,8 @@ void postOrderTraverse(BiNode *T){
 }
 
 
-//¶þ²æÊ÷µÄ½¨Á¢£¨»ùÓÚ¡°¶þ²æÁ´±í¡±£© 
-//´´½¨×ÓÊ÷
+//äºŒå‰æ ‘çš„å»ºç«‹ï¼ˆåŸºäºŽâ€œäºŒå‰é“¾è¡¨â€ï¼‰ 
+//åˆ›å»ºå­æ ‘
 void creatSubTree(BiNode *q,int k){
 	BiNode *u;
 	Elemtype x;
@@ -61,12 +61,12 @@ void creatSubTree(BiNode *q,int k){
 		if(k == 2){
 			q->rChild = u;
 		}
-		creatSubTree(u,1);  //µÝ¹é´´½¨uµÄ×ó×ÓÊ÷ 
-		creatSubTree(u,2);	//µÝ¹é´´½¨uµÄÓÒ×ÓÊ÷ 
+		creatSubTree(u,1);  //é€’å½’åˆ›å»ºuçš„å·¦å­æ ‘ 
+		creatSubTree(u,2);	//é€’å½’åˆ›å»ºuçš„å³å­æ ‘ 
 	}
 } 
 
-//´´½¨¸ù½Úµã 
+//åˆ›å»ºæ ¹èŠ‚ç‚¹ 
 void creatBiTree(BiNode *& BT){
 	BiNode *p;
 	char x;
@@ -85,7 +85,7 @@ void creatBiTree(BiNode *& BT){
 } 
 
 
-//¶þ²æÊ÷µÄÏú»Ù
+//äºŒå‰æ ‘çš„é”€æ¯
 void destroyBiTree(BiNode *pBT){
 	if(pBT){
 		destroyBiTree(pBT->lChild); 
@@ -95,7 +95,7 @@ void destroyBiTree(BiNode *pBT){
 } 
 
 
-//Çó¶þ²æÊ÷µÄ½ÚµãÊý(ÖÐÐò±éÀú·¨)
+//æ±‚äºŒå‰æ ‘çš„èŠ‚ç‚¹æ•°(ä¸­åºéåŽ†æ³•)
 void getNodeNum(BiNode *pBT,int &num){
 	if(pBT != NULL){
 		getNodeNum(pBT->lChild,num);
@@ -105,7 +105,7 @@ void getNodeNum(BiNode *pBT,int &num){
 } 
 
 
-//Çó¶þ²æÊ÷¸ß¶È
+//æ±‚äºŒå‰æ ‘é«˜åº¦
 int getBiTreeHeight(BiNode *pBT){
 	int m,n;
 	if(pBT == NULL){
@@ -122,8 +122,8 @@ int getBiTreeHeight(BiNode *pBT){
 
 
 
-/*ÏßË÷¶þ²æÊ÷ 
-ÇóÏÈÐòºó¼Ì 
+/*çº¿ç´¢äºŒå‰æ ‘ 
+æ±‚å…ˆåºåŽç»§ 
 */
 
 TBiNode* preSuc(TBiNode *P){
@@ -134,7 +134,7 @@ TBiNode* preSuc(TBiNode *P){
 	}
 } 	
 
-//ÇóÖÐÐòºó¼Ì
+//æ±‚ä¸­åºåŽç»§
 TBiNode* inSuc(TBiNode *P){
 	TBiNode *q = P->rChild;
 	if(P->rtag == 1){
@@ -146,10 +146,10 @@ TBiNode* inSuc(TBiNode *P){
 		return q;
 	}
 }
-//×¢£ºÇóÏÈÐòÇ°ÇýºÍºóÐøºó¼ÌÊÇÄÑÒÔÊµÏÖµÄ
+//æ³¨ï¼šæ±‚å…ˆåºå‰é©±å’ŒåŽç»­åŽç»§æ˜¯éš¾ä»¥å®žçŽ°çš„
 
 
-//ÏÈÐò±éÀúÏßË÷¶þ²æÊ÷(·ÇµÝ¹é)
+//å…ˆåºéåŽ†çº¿ç´¢äºŒå‰æ ‘(éžé€’å½’)
 void preOrder(TBiNode *T){
 	BiNode *p = T;
 	while(p != NULL){
@@ -160,9 +160,9 @@ void preOrder(TBiNode *T){
 
 
 //algorithms
-//Êä³ö¶þ²æÊ÷µÄËùÓÐÒ¶×Ó½áµãµÄÖµ
+//è¾“å‡ºäºŒå‰æ ‘çš„æ‰€æœ‰å¶å­ç»“ç‚¹çš„å€¼
 void visit2(BiNode *T){
-	if(T != NULL&T->lChild == NULL&T->rChild == NULL){
+	if(T != NULL && T->lChild == NULL && T->rChild == NULL){
 		cout << T->data <<endl; 
 	}
 } 
@@ -175,7 +175,7 @@ void leaf_node(BiNode *T){
 	}
 }
 
-//Êä³ö¶þ²æÊ÷ÖÐËùÓÐ½áµãÖµ¼°Æä¶ÔÓ¦²ã´Î/ÐòºÅ
+//è¾“å‡ºäºŒå‰æ ‘ä¸­æ‰€æœ‰ç»“ç‚¹å€¼åŠå…¶å¯¹åº”å±‚æ¬¡/åºå·
 
 void visit3(int num,int level){
 	cout << "level: "<<level<<endl;
@@ -195,7 +195,7 @@ void nodeLevelInfo(BiNode *T,int &num,int level){
                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 int main(){
 	
-	//²âÊÔÓÃÀý 
+	//æµ‹è¯•ç”¨ä¾‹ 
 	BiNode *BT;
 	creatBiTree(BT);
 	preOrderTraverse(BT);
@@ -203,5 +203,6 @@ int main(){
 	return 0;
 
 }
+
 
 
